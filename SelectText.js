@@ -2,7 +2,6 @@ var i = 0;
 var intervalID;
 function setHighlightInterval(node) {
     intervalID = setInterval(function() {highlight(node)}, 50);
-    // highlight(node);
 }
 
 function highlight(node) {
