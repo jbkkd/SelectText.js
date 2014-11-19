@@ -41,3 +41,11 @@ function iterateNextNode(node, iterateChildren) {
 
 selection = window.getSelection();
 // iterateNodes(selection.anchorNode)
+
+var elm;
+$(document).on('click', function(evt) {
+    console.log(evt);
+    elm = evt.target;
+    iterateNextNode(elm, true);
+    selection.setPosition(0);
+});
