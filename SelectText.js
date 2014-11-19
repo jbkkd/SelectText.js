@@ -1,14 +1,13 @@
 var i = 0;
 var intervalID;
 function iterateNodes(node) {
-    intervalID = setInterval(function() {highlight(node)}, 100);
+    intervalID = setInterval(function() {highlight(node)}, 50);
     // highlight(node);
 }
 
 function highlight(node) {
     if (i <= node.length) {
         selection.extend(node, i);
-        console.log(node);
         i++;
     } else {
         clearInterval(intervalID);
@@ -39,7 +38,6 @@ selection = window.getSelection();
 
 var elm;
 $(document).on('click', function(evt) {
-    console.log(evt);
     elm = evt.target;
     iterateNextNode(elm, true);
     selection.setPosition(0);
