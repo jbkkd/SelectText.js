@@ -19,7 +19,6 @@ function highlight(node) {
 
 function iterateNextNode(node, iterateChildren) {
     if (iterateChildren && node.childNodes.length > 0) {
-        console.log('children');
         // for (var j = 0; j < node.childNodes.length; j++) {
             iterateNodes(node.childNodes[0]);
             return;
@@ -27,20 +26,16 @@ function iterateNextNode(node, iterateChildren) {
     }
     if (node.nextSibling) {
         if (node.nextSibling.nodeType == 3) {
-            console.log('three');
             iterateNodes(node.nextSibling);
         } else {
-            console.log('go to children');
             iterateNextNode(node.nextSibling, true);
         }
     } else {
-        console.log('parent');
         iterateNextNode(node.parentNode, false);
     }
 }
 
 selection = window.getSelection();
-// iterateNodes(selection.anchorNode)
 
 var elm;
 $(document).on('click', function(evt) {
